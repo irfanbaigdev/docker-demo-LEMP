@@ -21,14 +21,22 @@ Run #1
 docker-compose build
 ```
 Run #2
+
+Build services
 ```
 docker-compose up -d
 ```
 Run #3
+
+SSH login to php container
+
 ```
 docker exec -t -i lemp_php /bin/bash
 ```
 Run #4
+
+SSH login to mysql container
+
 ```
 docker exec -t -i lemp_mysql /bin/bash
 ```
