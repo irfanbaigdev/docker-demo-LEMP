@@ -1,0 +1,8 @@
+*.zip
+.docker_data
+.idea
+.DS_Store
+.swp
+.build
+vendor
+bin/*
