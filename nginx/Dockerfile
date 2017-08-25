@@ -1,5 +1,5 @@
 FROM nginx:stable-alpine
 
-ADD demo.conf /etc/nginx/conf.d/demo.conf
+ADD lemp.conf /etc/nginx/conf.d/lemp.conf
 
 WORKDIR /etc/nginx/conf.d/

@@ -1,14 +1,14 @@
 version: '2'
 services:
   data:
-    container_name: demo_data
+    container_name: lemp_data
     build: ./data
     volumes:
       - .:/www
     command: /var/local/entrypoint.sh
 
   db:
-    container_name: demo_mysql
+    container_name: lemp_mysql
     build: ./mysql
     ports:
       - "3309:3309"
@@ -16,12 +16,12 @@ services:
       - .docker_data/mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: demo
-      MYSQL_USER: demo
-      MYSQL_PASSWORD: demo
+      MYSQL_DATABASE: lemp
+      MYSQL_USER: lemp
+      MYSQL_PASSWORD: lemp
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
   php:
-    container_name: demo_php
+    container_name: lemp_php
     build: ./php
     volumes_from:
       - data
@@ -31,14 +31,14 @@ services:
       CACHE_DIR: /www/var/cache
       LOG_DIR: /www/var/logs
       SESSION_DIR: /www/var/sessions
-      MYSQL_PASSWORD: demo
-      MYSQL_DATABASE: demo
-      MYSQL_USER: demo
-      MYSQL_HOST: demo_mysql
+      MYSQL_PASSWORD: lemp
+      MYSQL_DATABASE: lemp
+      MYSQL_USER: lemp
+      MYSQL_HOST: lemp_mysql
     command: /var/local/entrypoint.sh
 
   nginx:
-    container_name: demo_nginx
+    container_name: lemp_nginx
     build:
       context: ./nginx
     ports:
